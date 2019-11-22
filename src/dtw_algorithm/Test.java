@@ -16,13 +16,16 @@ public class Test {
 		Test t = new Test();
 		ArrayList<Trajectory> t1 = new ArrayList<Trajectory>();
 		t1 = t.readJsonFile("E://TestData03/");
-
+		System.out.println(t1.size());
+		//int num =0;
 		for (int i = 0; i < t1.size(); i++) {
 			for (int j = i + 1; j < t1.size(); j++) {
 				System.out.println(dtw.calculateDTW(t1.get(i), t1.get(j)));
+				//num++;
 			}
 		}
 		long end = System.currentTimeMillis();
+		//System.out.println(num);
 		System.out.println("The running time of program is £º " + (end - start) + "ms");
 	}
 

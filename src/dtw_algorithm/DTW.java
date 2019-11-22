@@ -35,13 +35,12 @@ public class DTW {
 			}
 		}
 
-		// System.out.println("dtw");
 		sum = DTW1(t1, t2);
 		return sum;
 	}
 
 	public double DTW1(Trajectory t1, Trajectory t2) {
-		// System.out.println("dtw2");
+		
 		double sum = 0;
 		if (t2.length() == 1) {
 			for (int i = 1; i < t1.length(); i++) {
@@ -55,9 +54,6 @@ public class DTW {
 			}
 		}
 
-		// System.out.println(distance[t1.length()-1][t2.length()-1]+Math.min(Math.min(DTW(getSubTrajectory(t1),
-		// getSubTrajectory(t2)), DTW(t1, getSubTrajectory(t2))),DTW(t2,
-		// getSubTrajectory(t1))));
 		else if (t1.length() > t2.length()) {
 			return distance[t1.length() - 1][t2.length() - 1]
 					+ Math.min(Math.min(DTW1(newTrajectory(t1), newTrajectory(t2)), DTW1(t1, newTrajectory(t2))),
@@ -80,6 +76,7 @@ public class DTW {
 		for (int i = 0; i < t.getPoints().length - 1; i++)
 			p[i] = t.getPoints()[i];
 		newTrajecotry.setPoints(p);
+
 		return newTrajecotry;
 	}
 
