@@ -15,7 +15,7 @@ public class Test {
 		DTW dtw = new DTW();
 		Test t = new Test();
 		ArrayList<Trajectory> t1 = new ArrayList<Trajectory>();
-		t1 = t.readJsonFile("E://TestData02/");
+		t1 = t.readJsonFile("E://TestData03/");
 
 		for (int i = 0; i < t1.size(); i++) {
 			for (int j = i + 1; j < t1.size(); j++) {
@@ -24,13 +24,12 @@ public class Test {
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("The running time of program is £º " + (end - start) + "ms");
-
 	}
 
 	public ArrayList<Trajectory> readJsonFile(String fileDir) {
-
+		
 		ArrayList<Trajectory> t = new ArrayList<Trajectory>();
-		Trajectory tj = new Trajectory();
+	
 		List<File> fileList = new ArrayList<File>();
 		File file = new File(fileDir);
 		File[] files = file.listFiles();
@@ -53,7 +52,7 @@ public class Test {
 				JSONArray getJsonArray = jsonObject.getJSONArray("locations");
 
 				int num = getJsonArray.length();
-				System.out.println(num);
+				//System.out.println(num);
 				double[] coordinate1_x = new double[num];
 				double[] coordinate1_y = new double[num];
 				Point[] coordinate1 = new Point[num];
@@ -70,10 +69,10 @@ public class Test {
 					coordinate1[j].y = coordinate1_x[j];
 					coordinate1[j].x = coordinate1_y[j];
 				}
-
+				Trajectory tj = new Trajectory();
 				tj.setPoints(coordinate1);
 				t.add(tj);
-
+				
 			} catch (Exception e) {
 				System.out.println("Exception");
 				continue;
