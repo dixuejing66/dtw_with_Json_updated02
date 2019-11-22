@@ -1,4 +1,4 @@
-package algorithm;
+package dtw_algorithm;
 
 public class DTW {
 	Trajectory newTrajecotry;
